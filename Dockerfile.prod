@@ -1,0 +1,40 @@
+# Use Node.js base image
+FROM node:18-alpine AS builder
+
+WORKDIR /app
+
+# Copy package files
+COPY package*.json ./
+
+# Install dependencies
+RUN npm install
+
+# Copy source code
+COPY . .
+
+# Build React app
+RUN npm run build
+
+# Production stage
+FROM node:18-alpine
+
+WORKDIR /app
+
+# Copy package files
+COPY package*.json ./
+
+# Install production dependencies only
+RUN npm install --only=production
+
+# Copy server code
+COPY server/ ./server/
+
+# Copy built React app from builder
+COPY --from=builder /app/build ./build
+
+# Copy public assets
+COPY public/ ./public/
+
+EXPOSE 5000
+
+CMD ["node", "server/index.js"]
