@@ -29,18 +29,31 @@ export default function Simulator() {
           <div className="space-y-6">
             <div className="bg-plasma/5 rounded-lg p-6 border border-plasma/20">
               <div className="space-y-2">
-                <button onClick={() => setIsRunning(!isRunning)} className="w-full px-4 py-2 bg-plasma text-dark font-semibold rounded-lg hover:shadow-lg transition flex items-center justify-center gap-2">
+                <button 
+                  onClick={() => setIsRunning(!isRunning)} 
+                  className="w-full px-4 py-2 bg-plasma text-dark font-semibold rounded-lg hover:shadow-lg transition flex items-center justify-center gap-2"
+                >
                   {isRunning ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />} 
                   {isRunning ? 'Pause' : 'Start'}
                 </button>
-                <button onClick={() => { setIsRunning(false); setIntensity(50); }} className="w-full px-4 py-2 border border-plasma text-plasma font-semibold rounded-lg hover:bg-plasma/10 transition flex items-center justify-center gap-2">
+                <button 
+                  onClick={() => { setIsRunning(false); setIntensity(50); }} 
+                  className="w-full px-4 py-2 border border-plasma text-plasma font-semibold rounded-lg hover:bg-plasma/10 transition flex items-center justify-center gap-2"
+                >
                   <RotateCcw className="w-4 h-4" /> Reset
                 </button>
               </div>
             </div>
             <div className="bg-plasma/5 rounded-lg p-6 border border-plasma/20">
               <label className="block text-sm text-gray-400 mb-2">Intensity: {intensity}%</label>
-              <input type="range" min="0" max="100" value={intensity} onChange={(e) => setIntensity(Number(e.target.value))} className="w-full h-2 bg-plasma/20 rounded-lg" />
+              <input 
+                type="range" 
+                min="0" 
+                max="100" 
+                value={intensity} 
+                onChange={(e) => setIntensity(Number(e.target.value))} 
+                className="w-full h-2 bg-plasma/20 rounded-lg cursor-pointer" 
+              />
             </div>
           </div>
         </div>
