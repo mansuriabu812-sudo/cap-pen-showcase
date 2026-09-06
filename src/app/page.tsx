@@ -42,12 +42,12 @@ export default function Home() {
           <h2 className="text-4xl font-bold mb-12 text-center">Key Features</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              {icon: Cube, title: '3D Viewer', description: 'Interactive 3D model visualization'},
-              {icon: Zap, title: 'Plasma Simulator', description: 'Real-time plasma behavior simulation'},
-              {icon: Beaker, title: 'Testing Portal', description: 'Comprehensive testing interface'},
+              { Icon: Cube, title: '3D Viewer', description: 'Interactive 3D model visualization' },
+              { Icon: Zap, title: 'Plasma Simulator', description: 'Real-time plasma behavior simulation' },
+              { Icon: Beaker, title: 'Testing Portal', description: 'Comprehensive testing interface' },
             ].map((feature, idx) => (
               <div key={idx} className="p-6 rounded-lg border border-plasma/20 bg-plasma/5 hover:bg-plasma/10 transition">
-                <feature.icon className="w-12 h-12 text-plasma mb-4" />
+                <feature.Icon className="w-12 h-12 text-plasma mb-4" />
                 <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
                 <p className="text-gray-400">{feature.description}</p>
               </div>
